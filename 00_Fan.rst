@@ -51,6 +51,7 @@ Tested libraries
 
 - MDAnalysis_ 0.19.2
 - Dask_ 1.1.1
+- PMDA 0.2.0
 
 
 References
@@ -66,4 +67,4 @@ References
 
 .. _MDAnalysis: http://mdanalysis.org
 .. _Dask: http://dask.pydata.org
-
+.. _PMDA: https://www.mdanalysis.org/pmda/
