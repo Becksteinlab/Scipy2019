@@ -5,8 +5,8 @@
 :institution: Arizona State University
 
 :author: Max Linke
-:email: 
-:institution: 
+:email: max.linke88@gmail.com
+:institution: Max Planck Institute of Biophysics
 
 :author: Ioannis Paraskevakos
 :email: i.paraskev@rutgers.edu
