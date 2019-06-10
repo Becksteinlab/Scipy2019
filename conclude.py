@@ -28,7 +28,7 @@ def conclude(total, io, compute, univ, w):
     com = []
     stop = len(all_io[1,:])-1
     start = 0
-    
+
     for i, j in enumerate(ndx):
         n_frames = len(all_io[1,:])
         n_blocks = int(j)
@@ -52,6 +52,31 @@ def conclude(total, io, compute, univ, w):
     df = pd.DataFrame(data = d)
     return df
 
+def mean_std(results):
+    stat = pd.DataFrame([])
+    ns = np.unique(results.n)
+    for i in ns:
+        i_df = results[results.n==i]
+        IO = i_df.IO
+        total = i_df.total
+        pre = i_df.prepare
+        con = i_df.conclude
+        univ = i_df.universe
+        wait = i_df.wait
+        com = i_df.compute
+        i_stat = {'n': i, 'total': total.mean(), 'total_std': total.std(),
+                'IO': IO.mean(), 'IO_std': IO.std(),
+                'prepare': pre.mean(), 'prepare_std': pre.std(),
+                'conclude': con.mean(), 'conclude_std': con.std(),
+                'universe': univ.mean(), 'universe_std': univ.std(),
+                'wait': wait.mean(), 'wait_std': wait.std(),
+                'compute': com.mean(), 'compute_std': com.std() }
+        i_df = pd.DataFrame(i_stat, index=[1])
+        stat = stat.append(i_df)
+    stat.reset_index(drop=True)
+    return stat
+
+
 #Gathering Treants
 b = dtr.discover()
 
@@ -62,25 +87,49 @@ analysis = ['RDF', 'RMS']
 scheduler = ['distr', 'multi']
 nodes = ['3nodes', '6nodes']
 
-
 # for Lustre distributed
-for n in size:
-    print n
-    for node in nodes:
-        print node
+for s in source:
+    for n in size:
+        print n
         for ana in analysis:
             print ana
-            results = pd.DataFrame([])
-            t = b[b.tags[[n, node, ana]]]
-            for data in t.trees():
-                lvs = data.leaves()
-                total = lvs.globfilter('benchmark*')[0].abspath
-                io = lvs.globfilter('io*')[0].abspath
-                compute = lvs.globfilter('compute*')[0].abspath
-                univ = lvs.globfilter('universe*')[0].abspath
-                w = lvs.globfilter('wait*')[0].abspath
-                df = conclude(total, io, compute, univ, w)
-                results = results.append(df)
-            path = os.path.join(t[0].abspath, 'conclusion.csv')
-            results.to_csv(path)
-            
+            for sche in scheduler:
+                print sche
+                if (sche == 'distr') & (s == 'Lustre'):
+                    for node in nodes:
+                        print node
+                        results = pd.DataFrame([])
+                        t = b[b.tags[[n, node, ana]]]
+                        for data in t.trees():
+                            lvs = data.leaves()
+                            total = lvs.globfilter('benchmark*')[0].abspath
+                            io = lvs.globfilter('io*')[0].abspath
+                            compute = lvs.globfilter('compute*')[0].abspath
+                            univ = lvs.globfilter('universe*')[0].abspath
+                            w = lvs.globfilter('wait*')[0].abspath
+                            df = conclude(total, io, compute, univ, w)
+                            results = results.append(df)
+                        results.reset_index(drop=True)
+                        path = os.path.join(t[0].abspath, 'conclusion.csv')
+                        results.to_csv(path)
+                        stat = mean_std(results)
+                        spath = os.path.join(t[0].abspath, 'stat.csv')
+                        stat.to_csv(spath)
+                else:
+                    results = pd.DataFrame([])
+                    t = b[b.tags[[n, s, sche, ana]]]
+                    for data in t.trees():
+                        lvs = data.leaves()
+                        total = lvs.globfilter('benchmark*')[0].abspath
+                        io = lvs.globfilter('io*')[0].abspath
+                        compute = lvs.globfilter('compute*')[0].abspath
+                        univ = lvs.globfilter('universe*')[0].abspath
+                        w = lvs.globfilter('wait*')[0].abspath
+                        df = conclude(total, io, compute, univ, w)
+                        results = results.append(df)
+                    results.reset_index(drop=True)
+                    path = os.path.join(t[0].abspath, 'conclusion.csv')
+                    results.to_csv(path)
+                    stat = mean_std(results)
+                    spath = os.path.join(t[0].abspath, 'stat.csv')
+                    stat.to_csv(spath)
