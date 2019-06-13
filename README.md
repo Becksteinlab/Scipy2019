@@ -1,4 +1,7 @@
 # Data files and scripts for "PMDA – Parallel Molecular Dynamics Analysis"
+[![DOI](https://zenodo.org/badge/170560828.svg)](https://zenodo.org/badge/latestdoi/170560828)
+
+
 This repository contains data files and scripts for our Scipy2019 paper on [PMDA](https://www.mdanalysis.org/pmda/).
 
 
