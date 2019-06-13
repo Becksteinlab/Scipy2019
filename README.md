@@ -24,11 +24,11 @@ References
 ----------
 
 
-[Gowers2016] Gowers, Richard J.; Linke, Max; Barnoud, Jonathan; Reddy, Tyler J. E.; Melo, Manuel N.; Seyler, Sean L.; Dotson, David L.; Domański, Jan; Buchoux, Sébastien; Kenney, Ian M.; and Beckstein, Oliver. MDAnalysis: A Python package for the rapid analysis of molecular dynamics simulations. In S. Benthall and S. Rostrup, editors, Proceedings of the 15th Python in Science Conference, pages 102 – 109, Austin, TX, 2016. SciPy. URL: https://www.mdanalysis.org/.
+[Gowers2016] Gowers, Richard J.; Linke, Max; Barnoud, Jonathan; Reddy, Tyler J. E.; Melo, Manuel N.; Seyler, Sean L.; Dotson, David L.; Domański, Jan; Buchoux, Sébastien; Kenney, Ian M.; and Beckstein, Oliver. MDAnalysis: A Python package for the rapid analysis of molecular dynamics simulations. In S. Benthall and S. Rostrup, editors, Proceedings of the 15th Python in Science Conference, pages 102 – 109, Austin, TX, 2016. SciPy. DOI: [10.25080/Majora-629e541a-00e](https://doi.org/10.25080/Majora-629e541a-00e).
 
-[Rocklin2015] Rocklin, Matthew. Dask: Parallel Computation with Blocked algorithms and Task Scheduling. Presented at the Python in Science Conference, Austin, Texas, pp. 126–132. DOI: https://doi.org/10.25080/Majora-7b98e3ed-013.
+[Rocklin2015] Rocklin, Matthew. Dask: Parallel Computation with Blocked algorithms and Task Scheduling. Presented at the Python in Science Conference, Austin, Texas, pp. 126–132. DOI: [10.25080/Majora-7b98e3ed-013](https://doi.org/10.25080/Majora-7b98e3ed-013).
 
-[Khoshlessan2017] Khoshlessan, Mahzad; Beckstein, Oliver (2017): Parallel analysis in the MDAnalysis Library: Benchmark of Trajectory File Formats. figshare. DOI: https://doi.org/10.6084/m9.figshare.4695742.
+[Khoshlessan2017] M. Khoshlessan, I. Paraskevakos, S. Jha, and O. Beckstein. Parallel analysis in MDAnalysis using the Dask parallel computing library. In Katy Huff, David Lippa, Dillon Niederhut, and M. Pacer, editors, Proceedings of the 16th Python in Science Conference, pages 64–72, Austin, TX, 2017. SciPy. DOI: [10.25080/shinma-7f4c6e7-00a](https://doi.org/10.25080/shinma-7f4c6e7-00a)
 
-[Paraskevakos2018] Ioannis Paraskevakos, Andre Luckow, Mahzad Khoshlessan, George Chantzialexiou, Thomas E. Cheatham, Oliver Beckstein, Geoffrey C. Fox and Shantenu Jha. Task- parallel Analysis of Molecular Dynamics Trajectories. In 47th International Conference on Parallel Processing (ICPP 2018). DOI: https://doi.org/10.1145/3225058.3225128.
+[Paraskevakos2018] Ioannis Paraskevakos, Andre Luckow, Mahzad Khoshlessan, George Chantzialexiou, Thomas E. Cheatham, Oliver Beckstein, Geoffrey C. Fox and Shantenu Jha. Task- parallel Analysis of Molecular Dynamics Trajectories. In 47th International Conference on Parallel Processing (ICPP 2018). DOI: [10.1145/3225058.3225128](https://doi.org/10.1145/3225058.3225128).
 
